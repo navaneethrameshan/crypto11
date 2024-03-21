@@ -152,6 +152,7 @@ func (g genericAead) Seal(dst, nonce, plaintext, additionalData []byte) []byte {
 			if len(nonce) != len(params.IV()) {
 				return errBadGCMNonceSize
 			}
+			copy(nonce, params.IV())
 		}
 
 		return
